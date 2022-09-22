@@ -1,0 +1,55 @@
+﻿@model Object
+
+@if (Model is IEnumerable<object>)
+{
+    <div class="row">
+        @foreach (var model in (IEnumerable<object>)Model)
+        {
+            <div class="col-4 my-3">
+                <div class="card" style="width: 18rem;">
+                    @foreach (var prop in model.GetType().GetProperties())
+                    {
+                        @if (prop.Name.Contains("Image") || prop.Name.ToLower().Contains("img"))
+                        {
+                            <img src=@prop.GetValue(model) class="card-img-top" alt="...">
+                        }
+                        else if (prop.Name.ToLower().Contains("title"))
+                        {
+                            <h5 class="card-title px-2">@prop.GetValue(model)</h5>
+                        }
+                        else
+                        {
+                            <p class="card-text px-2">@prop.GetValue(model)</p>
+                        }
+                    }
+                    @if (model.GetType().GetProperty("Id") != null)
+                    {
+                        <a asp-action="Detail" asp-route-id="@(model.GetType().GetProperty("Id").GetValue(model))">Detail</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="col-4 my-3">
+        <div class="card" style="width: 18rem;">
+            @foreach (var prop in Model.GetType().GetProperties())
+            {
+                @if (prop.Name.Contains("Image") || prop.Name.ToLower().Contains("img"))
+                {
+                    <img src=@prop.GetValue(Model) class="card-img-top" alt="...">
+                }
+                else if (prop.Name.ToLower().Contains("title"))
+                {
+                    <h5 class="card-title px-2">@prop.GetValue(Model)</h5>
+                }
+                else
+                {
+                    <p class="card-text px-2">@prop.GetValue(Model)</p>
+                }
+            }
+        </div>
+    </div>
+}
