@@ -1,4 +1,4 @@
-using PYP_GenericPartial_and_HTTPRequest.Services.Abstraction;
+using PYP_GenericPartial_and_HTTPRequest.HttpClients;
 using Refit;
 using System.Text.Json;
 using PYP_GenericPartial_and_HTTPRequest.Extensions;

@@ -1,7 +1,7 @@
 ﻿using PYP_GenericPartial_and_HTTPRequest.DTOs;
 using Refit;
 
-namespace PYP_GenericPartial_and_HTTPRequest.Services.Abstraction;
+namespace PYP_GenericPartial_and_HTTPRequest.HttpClients;
 
 public interface IProductHttpClient
 {

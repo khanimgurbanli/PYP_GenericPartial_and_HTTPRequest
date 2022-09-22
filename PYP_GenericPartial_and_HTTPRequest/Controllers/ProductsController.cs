@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PYP_GenericPartial_and_HTTPRequest.DTOs;
-using PYP_GenericPartial_and_HTTPRequest.Services.Abstraction;
+using PYP_GenericPartial_and_HTTPRequest.HttpClients;
 
 namespace PYP_GenericPartial_and_HTTPRequest.Controllers
 {
